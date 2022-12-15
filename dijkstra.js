@@ -1,10 +1,10 @@
-var Queue = require('tinyqueue');
+import Queue from 'tinyqueue';
 
-module.exports = function(graph, start, end) {
+export default function (graph, start, end) {
     var costs = {};
     costs[start] = 0;
     var initialState = [0, [start], start];
-    var queue = new Queue([initialState], function(a, b) { return a[0] - b[0]; });
+    var queue = new Queue([initialState], function (a, b) { return a[0] - b[0]; });
     var explored = {};
 
     while (queue.length) {
@@ -16,7 +16,7 @@ module.exports = function(graph, start, end) {
         }
 
         var neighbours = graph[node];
-        Object.keys(neighbours).forEach(function(n) {
+        Object.keys(neighbours).forEach(function (n) {
             var newCost = cost + neighbours[n];
             if (!(n in costs) || newCost < costs[n]) {
                 costs[n] = newCost;

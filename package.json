@@ -1,10 +1,11 @@
 {
   "name": "geojson-path-finder",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Find shortest path through a network of GeoJSON",
   "repository": "git@github.com:perliedman/geojson-path-finder.git",
   "homepage": "https://github.com/perliedman/geojson-path-finder",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
@@ -14,12 +15,11 @@
   "author": "Per Liedman <per@liedman.net>",
   "license": "ISC",
   "dependencies": {
-    "@turf/distance": "^6.0.1",
-    "@turf/explode": "^5.1.0",
-    "tap": "^14.2.2",
+    "@turf/distance": "^6.3.0",
+    "@turf/explode": "^6.3.0",
+    "tap": "^15.0.9",
     "tap-spec": "^5.0.0",
-    "tinyqueue": "^2.0.0",
+    "tinyqueue": "^2.0.3",
     "turf-point": "^2.0.1"
-  },
-  "devDependencies": {}
+  }
 }
