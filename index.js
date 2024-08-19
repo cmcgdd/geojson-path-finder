@@ -26,7 +26,6 @@ export default class PathFinder {
     // chris: I added this function. L is L from leaflet, which this package doesn't have direct access to.
     nearestRoad(L, map, layer, point) {
         const cl = L.GeometryUtil.closestLayer(map, layer.getLayers(), point);
-        console.log('cl', cl);
         const closest = cl.latlng;
         closest.weight = cl.layer.feature?.properties?.weight ?? 1;
         const segments = cl.layer._latlngs;
@@ -70,8 +69,6 @@ export default class PathFinder {
         const [a0, a1, a2] = this.nearestRoad(L, map, layer, [a.lat, a.lng]);
         const [b0, b1, b2] = this.nearestRoad(L, map, layer, [b.lat, b.lng]);
 
-        console.log('a', a0, a1, a2);
-        console.log('b', b0, b1, b2);
         // If these points are on the same segment.
         if ((a1 === b1 && a2 === b2) || (a1 === b2 && a2 === b1)) {
             return {
