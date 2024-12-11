@@ -41,7 +41,7 @@ export default function preprocess(graph, options) {
             }
         };
 
-        if (w) {
+        if (w >= 0) {
             makeEdgeList(a);
             makeEdgeList(b);
             if (w instanceof Object) {

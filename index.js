@@ -84,6 +84,9 @@ export default class PathFinder {
         const direct = this._findPath(this.toPoint(a0), this.toPoint(b0));
         if (direct != null) return direct;
 
+        // FIXME: When weights are zero (for teleportation), sometimes the path backtracks. It's
+        //        fine for now since it doesn't impact the route time, but it looks weird and it
+        //        increases the distance, so I should try to fix it at some point in the future.
         // Test if either of the points is on a vertex.
         const l1r = roundCoord([a0.lng, a0.lat], this._precision);
         const a1r = roundCoord([a1.lng, a1.lat], this._precision);
